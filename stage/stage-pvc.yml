@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Template
+metadata:
+  creationTimestamp: null
+  name: gitlab-builder
+objects:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations: null
+    creationTimestamp: null
+    name: pgadmin-log
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  status: {}
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations: null
+    creationTimestamp: null
+    name: pgadmin-data
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  status: {}
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations: null
+    creationTimestamp: null
+    name: bpgit-berlin-db
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  status: {}

@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Template
+metadata:
+  creationTimestamp: null
+  name: gitlab-builder
+objects:
+- apiVersion: v1
+  kind: Route
+  metadata:
+    annotations: null
+    creationTimestamp: null
+    labels:
+      app: pgadmin4
+    name: pgadmin4
+  spec:
+    port:
+      targetPort: 8080-tcp
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+    to:
+      kind: Service
+      name: pgadmin4
+      weight: 100
+    wildcardPolicy: None
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      description: Route for application's http service.
+      openshift.io/host.generated: "true"
+    creationTimestamp: null
+    labels:
+      application: berlin-backend-binary
+    name: berlin-backend-binary
+  spec:
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+    to:
+      kind: Service
+      name: berlin-backend-binary
+      weight: 100
+    wildcardPolicy: None
+parameters:
+  - name: STAGE_NAME 
+    displayName: Stage Name
+    description: Stage Name for custom route url 
+    required: true
+ 

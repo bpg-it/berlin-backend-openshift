@@ -11,7 +11,7 @@ TARGET_NAMESPACE=bpgit-berlin-$STAGE_NAME
 IMAGE_NAMESPACE=bpgit-berlin-builder
 
 # specify image tag (develop, latest, ...)
-IMAGE_TAG=develop
+IMAGE_TAG=latest
 
 # set spring profile (optional)
 SPRING_PROFILES_ACTIVE=default

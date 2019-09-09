@@ -57,7 +57,7 @@ objects:
       protocol: TCP
       targetPort: 8080
     selector:
-      deployment-config.name: berlin-backend-binary
+      deploymentconfig: berlin-backend 
     sessionAffinity: None
     type: ClusterIP
   status:

@@ -1,8 +1,14 @@
 # springboot-demo-openshift
 
-Scripts to setup dev/int/prod stages automatically using oc cli.
+Scripts to setup builder/dev/int/prod stages automatically using oc cli.
 
-## Stage Namespace
+## Builder Project
+
+```bash
+./create-builder.sh
+```
+
+## Stage Project
 
 ### Modify script
 
